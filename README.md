@@ -1,4 +1,4 @@
 WebDriverWithProxy
 ==================
 
-How to use Proxy with WebDriver or RemoteWebDriver
+How to use Proxy with WebDriver and RemoteWebDriver
