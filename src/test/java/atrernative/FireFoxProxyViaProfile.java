@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
 public class FireFoxProxyViaProfile extends BaseTest {
 
     @BeforeMethod
-    public void testName() throws Exception {
+    public void setUpProxy() throws Exception {
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
         FirefoxProfile profile = new FirefoxProfile();
@@ -29,8 +29,10 @@ public class FireFoxProxyViaProfile extends BaseTest {
         //or
         //driver = new FirefoxDriver(profile);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.manage().window().maximize();
     }
 
-
+    @Test
+    public void testName() throws Exception {
+        doTest();
+    }
 }

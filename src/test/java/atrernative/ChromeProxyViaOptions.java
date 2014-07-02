@@ -1,14 +1,10 @@
 package atrernative;
 
 import base.BaseTest;
-import junit.runner.BaseTestRunner;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
@@ -19,7 +15,7 @@ import java.util.concurrent.TimeUnit;
 public class ChromeProxyViaOptions extends BaseTest {
 
     @BeforeMethod
-    public void setUp() throws Exception {
+    public void setUpProxy() throws Exception {
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
         ChromeOptions options = new ChromeOptions();
@@ -30,8 +26,11 @@ public class ChromeProxyViaOptions extends BaseTest {
         //or
         //driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.manage().window().maximize();
     }
 
+    @Test
+    public void testName() throws Exception {
+        doTest();
+    }
 
 }
