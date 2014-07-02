@@ -1,5 +1,6 @@
 package base;
 
+import net.lightbody.bmp.core.har.Har;
 import net.lightbody.bmp.proxy.ProxyServer;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -10,6 +11,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
 import java.net.InetAddress;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by Funker on 30.06.14.
@@ -39,13 +41,15 @@ public class BaseTest {
 
     @AfterTest
     public void stopProxy() throws Exception {
+        Har har = server.getHar();
         server.stop();
+        System.out.println("Size of har file is: " + har.getLog().getEntries().size());
     }
 
     public void doTest() throws InterruptedException {
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get(url);
-        driver.get(url);
-
         driver.findElement(By.xpath("//i[@class='fa fa-search']")).click();
         WebElement element = driver.findElement(By.xpath("//div[@id='search-dropdown']/input"));
         element.sendKeys("proxy");

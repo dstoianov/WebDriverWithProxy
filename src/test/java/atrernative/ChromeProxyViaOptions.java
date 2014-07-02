@@ -7,8 +7,6 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.util.concurrent.TimeUnit;
-
 /**
  * Created by Funker on 30.06.14.
  */
@@ -19,13 +17,13 @@ public class ChromeProxyViaOptions extends BaseTest {
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--proxy-server=http://" + proxyIp);
+        options.addArguments("test-type"); //hide --ignore-certifcate-errors https://code.google.com/p/chromedriver/issues/detail?id=799
+        options.addArguments("--proxy-server=http://" + proxyIp + ":" + port);
         capabilities.setCapability(ChromeOptions.CAPABILITY, options);
 
         driver = new ChromeDriver(capabilities);
         //or
         //driver = new ChromeDriver(options);
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     @Test

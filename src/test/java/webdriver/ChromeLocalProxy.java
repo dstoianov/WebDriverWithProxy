@@ -8,8 +8,6 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.util.concurrent.TimeUnit;
-
 /**
  * Created by Funker on 30.06.14.
  */
@@ -26,9 +24,7 @@ public class ChromeLocalProxy extends BaseTest {
         //or
 //        capabilities.setCapability(CapabilityType.PROXY, server.seleniumProxy());
         driver = new ChromeDriver(capabilities);
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
-
 
     @Test
     public void testName() throws Exception {
