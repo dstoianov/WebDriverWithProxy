@@ -1,7 +1,6 @@
 package webdriver;
 
 import base.BaseTest;
-import org.openqa.selenium.Proxy;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -15,12 +14,8 @@ public class ChromeLocalProxy extends BaseTest {
 
     @BeforeMethod
     public void setUpProxy() throws Exception {
-        Proxy proxy = new Proxy();
-        proxy.setProxyType(Proxy.ProxyType.MANUAL);
-        proxy.setHttpProxy(proxyIp + ":" + port);
-        proxy.setSslProxy(proxyIp + ":" + port);
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability(CapabilityType.PROXY, proxy);
+        capabilities.setCapability(CapabilityType.PROXY, getProxy());
         //or
 //        capabilities.setCapability(CapabilityType.PROXY, server.seleniumProxy());
         driver = new ChromeDriver(capabilities);

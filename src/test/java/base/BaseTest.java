@@ -2,10 +2,7 @@ package base;
 
 import net.lightbody.bmp.core.har.Har;
 import net.lightbody.bmp.proxy.ProxyServer;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -56,6 +53,15 @@ public class BaseTest {
         Thread.sleep(2000);
         element.sendKeys(Keys.ARROW_DOWN);
         element.sendKeys(Keys.ENTER);
+    }
+
+    public Proxy getProxy() {
+        Proxy proxy = new Proxy();
+        String PROXY = proxyIp + ":" + port;
+        proxy.setProxyType(Proxy.ProxyType.MANUAL);
+        proxy.setHttpProxy(PROXY);
+        proxy.setSslProxy(PROXY);
+        return proxy;
     }
 
 }
