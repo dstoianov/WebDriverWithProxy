@@ -13,13 +13,13 @@ As an example in this article is used BrowserMobProxy which is started by locall
 
 If it need to set remote proxy, just change IP and port in method `getProxy()`
 
-1. Set proxy for Chrome via RemoteWebDriver 
+* Set proxy for Chrome via RemoteWebDriver 
 ```java
         DesiredCapabilities capabilities = DesiredCapabilities.chrome();
         capabilities.setCapability(CapabilityType.PROXY, getProxy());
         driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
 ```
-2. Set proxy for Chrome via WebDriver
+* Set proxy for Chrome via WebDriver
 ```java
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability(CapabilityType.PROXY, getProxy());
