@@ -19,7 +19,6 @@ If it need to set remote proxy, just change IP and port in method `getProxy()`
         capabilities.setCapability(CapabilityType.PROXY, getProxy());
         driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
 ```
-
 2. Set proxy for Chrome via WebDriver
 ```java
         DesiredCapabilities capabilities = new DesiredCapabilities();
